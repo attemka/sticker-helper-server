@@ -16,7 +16,7 @@ export default ({ config, db }) => {
 
   api.get("/stickers", (req, res) => {
     getStickersWithFilepaths(0, 20).then(stickers => {
-      stickers = stickers.map(sticker => ({...sticker, filePath: `http://localhost:8888/api${sticker.filePath}`}));
+      stickers = stickers.map(sticker => ({...sticker, filePath: `/api${sticker.filePath}`}));
       res.send(stickers);
     });
   });
